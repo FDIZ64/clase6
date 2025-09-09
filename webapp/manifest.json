@@ -101,6 +101,28 @@
       "config": {},
       "routes": [],
       "targets": {}
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+            "controllerName": "clase6.ext.controller.ListReportExt",
+            "sap.ui.generic.app": {
+              "DispuSet": {
+                "EntitySet": "Customers",
+                "Actions": {
+                  "IdEdit": {
+                    "id": "IdButton",
+                    "text": "Mi Boton",
+                    "press": "onOpenButton",
+                    "requiresSelection": false
+                  }
+                } 
+              }
+            }
+          }
+        }
+      }
     }
   },
   "sap.ui.generic.app": {
