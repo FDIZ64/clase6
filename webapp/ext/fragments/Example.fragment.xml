@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+     xmlns="sap.m"
+     xmlns:u="sap.ui.unified"
+     xmlns:core="sap.ui.core">
+     <Dialog id="true"
+             resizable="true" 
+             title="Example Fragment Dialog"
+             contentWidth="400px"
+             contentHeight="100px">
+          <content>
+                <Text text="This is an example fragment dialog."/>
+                <Button text="Close" press=".onExit"/>
+          </content>
+     </Dialog>
+</core:FragmentDefinition>
