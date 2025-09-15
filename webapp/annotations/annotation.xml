@@ -103,12 +103,7 @@
                         <PropertyValue Property="Value" Path="Phone"/>
                     </Record>
                     <Record Type="UI.DataField">
-                        <PropertyValue Property="Label" String="Numero de Orde"/>
                         <PropertyValue Property="Value" Path="Orders/OrderID"/>
-                    </Record>
-                    <Record Type="UI.DataField">
-                        <PropertyValue Property="Label" String="Fecha de la Orden"/>
-                        <PropertyValue Property="Value" Path="Orders/RequiredDate"/>
                     </Record>
                 </Collection>
             </Annotation>
@@ -160,6 +155,21 @@
                                 <PropertyValue Property="Label" String="Fax"/>
                                 <PropertyValue Property="Value" Path="Fax"/>
                             </Record>
+                            
+                    <!-- Navegación a la navigation property Orders -->
+                    <Record Type="UI.DataFieldWithNavigationPath">
+                        <PropertyValue Property="Label" String="Orders" />
+                        <!-- NavigationPath es el nombre de la navigation property en el EDM -->
+                        <PropertyValue Property="NavigationPath" String="Orders"/>
+                        <!-- Target opcional: define view/action si querés abrir un ObjectPage -->
+                        <PropertyValue Property="Target">
+                        <Record Type="UI.NavigationTarget">
+                            <!-- Si tenés un ObjectPage target llamado 'Orders' -->
+                            <PropertyValue Property="SemanticObject" String="Order" />
+                            <PropertyValue Property="Action" String="display" />
+                        </Record>
+                        </PropertyValue>
+                    </Record>   
                         </Collection>
                     </PropertyValue>
                 </Record>
