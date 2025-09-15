@@ -18,14 +18,14 @@
 
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
-            <Annotations Target="ODataWeb.Northwind.Model.NorthwindEntities/Customers">
-            <Annotation Term="Capabilities.SearchRestrictions">
-                <Record Type="Capabilities.SearchRestrictionsType">
-                    <PropertyValue Property="Searchable" Bool="false">
-                    </PropertyValue>
-                </Record>
-            </Annotation>
-            </Annotations>
+        <Annotations Target="ODataWeb.Northwind.Model.NorthwindEntities/Customers">
+        <Annotation Term="Capabilities.SearchRestrictions">
+            <Record Type="Capabilities.SearchRestrictionsType">
+                <PropertyValue Property="Searchable" Bool="false">
+                </PropertyValue>
+            </Record>
+        </Annotation>
+        </Annotations>
 
         <Annotations Target="NorthwindModel.Customer/CustomerID">
             <Annotation Term="Common.Label" String="{@i18n>customerid}"/>
@@ -40,6 +40,24 @@
             <Annotation Term="Common.Label" String="Ciudad"/>
         </Annotations>
         <Annotations Target="NorthwindModel.Customer">
+
+            <Annotation Term="UI.HeaderInfo">
+                <Record Type="UI.HeaderInfoType">
+                    <PropertyValue Property="TypeName" String="Cliente"/>
+                    <!-- object page-->
+                    <PropertyValue Property="Title">
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyName"/>
+                        </Record>
+                    </PropertyValue>
+                    <PropertyValue Property="Description">
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ContactName"/>
+                        </Record>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+
             <Annotation Term="UI.SelectionFields">
                 <Collection>
                    <PropertyPath>CustomerID</PropertyPath>
@@ -53,7 +71,6 @@
                     <Record Type="UI.DataField">
                         <PropertyValue Property="Value" Path="CustomerID"/>
                         <PropertyValue Property="Label" String="Id"/>
-
                     </Record>
                     <Record Type="UI.DataField">
                         <PropertyValue Property="Value" Path="CompanyName"/>
@@ -83,13 +100,69 @@
                         <PropertyValue Property="Value" Path="Country"/>
                     </Record>
                     <Record Type="UI.DataField">
-                        <PropertyValue Property="Value" Path="Phone">          
-                        </PropertyValue>
+                        <PropertyValue Property="Value" Path="Phone"/>
                     </Record>
                     <Record Type="UI.DataField">
-                        <PropertyValue Property="Value" Path="City"/>
+                        <PropertyValue Property="Label" String="Numero de Orde"/>
+                        <PropertyValue Property="Value" Path="Orders/OrderID"/>
+                    </Record>
+                    <Record Type="UI.DataField">
+                        <PropertyValue Property="Label" String="Fecha de la Orden"/>
+                        <PropertyValue Property="Value" Path="Orders/RequiredDate"/>
                     </Record>
                 </Collection>
+            </Annotation>
+            <Annotation Term="UI.Facets">
+                <Collection>
+                    <Record Type="UI.ReferenceFacet">
+                        <PropertyValue Property="Label" String="Información de contacto"/>
+                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#tabCaseOverview"/>
+                    </Record>
+                 </Collection>
+            </Annotation>
+            <Annotation Term="UI.FieldGroup" Qualifier="tabCaseOverview">
+                <Record Type="UI.FieldGroupType">
+                    <PropertyValue Property="Data" >
+                        <Collection>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Nombre de contacto"/>
+                                <PropertyValue Property="Value" Path="ContactName"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Titulo de contacto"/>
+                                <PropertyValue Property="Value" Path="ContactTitle"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Direccion"/>
+                                <PropertyValue Property="Value" Path="Address"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Ciudad"/>
+                                <PropertyValue Property="Value" Path="City"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Region"/>
+                                <PropertyValue Property="Value" Path="Region"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Codigo postal"/>
+                                <PropertyValue Property="Value" Path="PostalCode"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Pais"/>
+                                <PropertyValue Property="Value" Path="Country"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                 <PropertyValue Property="Label" String="Telefono"/>
+                               <PropertyValue Property="Value" Path="Phone"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Fax"/>
+                                <PropertyValue Property="Value" Path="Fax"/>
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
             </Annotation>
         </Annotations>
         </Schema>

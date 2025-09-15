@@ -4,10 +4,11 @@ sap.ui.define([
     "use strict"
     return {
         onInit () {
-            alert("Controller ListReportExt initialized")
+
+
+
         },
         onOpenButton () {
-            alert("Button pressed");
             if (this._oFragment) return this._oFragment.open();
             Fragment.load({
                 id: this.getView().getId(),
